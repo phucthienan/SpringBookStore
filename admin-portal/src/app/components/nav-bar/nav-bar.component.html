@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>ADMIN PORTAL</span>
+    <span class="fill-space"></span>
+    <span [hidden]="!isLoggedIn">
+      <a mat-button>View Book List</a>
+      <a mat-button>Add a Book</a>
+      <a mat-button>Logout</a>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<button mat-raised-button class="mat-primary" (click)="toggleLogin()">Toggle Login</button>

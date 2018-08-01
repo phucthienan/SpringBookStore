@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -19,6 +20,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     MatButtonModule
   ],
   providers: [],
