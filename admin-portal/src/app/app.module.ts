@@ -20,6 +20,7 @@ import { AddNewBookComponent } from './components/add-new-book/add-new-book.comp
 
 import { LoginService } from './services/login.service';
 import { AddBookService } from './services/add-book.service';
+import { UploadImageService } from './services/upload-image.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { AddBookService } from './services/add-book.service';
   ],
   providers: [
     LoginService,
-    AddBookService],
+    AddBookService,
+    UploadImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -106,7 +106,7 @@
     </mat-form-field>
 
     Image &nbsp;
-    <input id="tile" type="file" id="bookImage" name="bookImage">
+    <input id="tile" type="file" id="bookImage" name="bookImage" (change)="onFilesChange($event)">
 
     <mat-grid-list cols="20" rowHeight="70px">
       <mat-grid-tile [colspan]="2" [rowspan]="1">
