@@ -13,8 +13,4 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  toggleLogin() {
-    this.isLoggedIn = !this.isLoggedIn;
-  }
 }
