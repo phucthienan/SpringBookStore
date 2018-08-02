@@ -10,18 +10,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
 
 import { LoginService } from './services/login.service';
+import { AddBookService } from './services/add-book.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    AddNewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,13 @@ import { LoginService } from './services/login.service';
     MatButtonModule,
     MatGridListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatSlideToggleModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    AddBookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
