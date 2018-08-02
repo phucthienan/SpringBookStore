@@ -2,7 +2,7 @@
   <mat-grid-list cols="8">
     <mat-grid-tile [colspan]="1"></mat-grid-tile>
     <mat-grid-tile [colspan]="6">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <mat-form-field>
           <input type="text" matInput placeholder="Username" [(ngModel)]="credentials.username" name="username">
         </mat-form-field>

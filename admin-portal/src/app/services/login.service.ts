@@ -3,7 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
+  private loggedIn: boolean = false;
+
   constructor(private http: HttpClient) { }
+
+  setLoggedIn(loggedIn: boolean) {
+    this.loggedIn = loggedIn;
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn;
+  }
 
   sendCredentials(username: string, password: string) {
     const url = 'http://localhost:8080/login';
@@ -24,5 +34,14 @@ export class LoginService {
     });
 
     return this.http.get(url, { headers: headers });
+  }
+
+  logout() {
+    const url = 'http://localhost:8080/user-logout';
+    const headers = new HttpHeaders({
+      'x-auth-token': localStorage.getItem('xAuthToken')
+    });
+
+    return this.http.post(url, null, { headers: headers });
   }
 }
