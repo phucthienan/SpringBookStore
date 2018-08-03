@@ -3,8 +3,8 @@
     <span>ADMIN PORTAL</span>
     <span class="fill-space"></span>
     <span [hidden]="!isLoggedIn">
-      <a mat-button>View Book List</a>
-      <a mat-button routerLink="/new-book">Add a Book</a>
+      <a mat-button routerLink="/books">View Book List</a>
+      <a mat-button routerLink="/books/new">Add a Book</a>
       <a mat-button (click)="logout()">Logout</a>
     </span>
   </mat-toolbar-row>

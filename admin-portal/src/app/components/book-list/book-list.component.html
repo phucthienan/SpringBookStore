@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="books" class="mat-elevation-z8">
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let book">{{book.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let book">{{book.title}}</td>
+  </ng-container>
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Author</th>
+    <td mat-cell *matCellDef="let book">{{book.author}}</td>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let book">{{book.category}}</td>
+  </ng-container>
+  <ng-container matColumnDef="listPrice">
+    <th mat-header-cell *matHeaderCellDef>List Price</th>
+    <td mat-cell *matCellDef="let book">{{book.listPrice}}</td>
+  </ng-container>
+  <ng-container matColumnDef="ourPrice">
+    <th mat-header-cell *matHeaderCellDef>Our Price</th>
+    <td mat-cell *matCellDef="let book">{{book.ourPrice}}</td>
+  </ng-container>
+  <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef>Active</th>
+      <td mat-cell *matCellDef="let book">
+        <mat-checkbox [(ngModel)]="book.active" [disabled]="true"></mat-checkbox>
+      </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let book">{{book.category}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+</table>
+<button mat-raised-button class="mat-warn" (click)="deleteSelectedBooks()">Delete</button>

@@ -12,22 +12,31 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { BookViewComponent } from './components/book-view/book-view.component';
 
 import { LoginService } from './services/login.service';
 import { AddBookService } from './services/add-book.service';
 import { UploadImageService } from './services/upload-image.service';
+import { GetBookListService } from './services/get-book-list.service';
+import { GetBookService } from './services/get-book.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    AddNewBookComponent
+    AddNewBookComponent,
+    BookListComponent,
+    BookViewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,12 +50,17 @@ import { UploadImageService } from './services/upload-image.service';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [
     LoginService,
     AddBookService,
-    UploadImageService
+    UploadImageService,
+    GetBookListService,
+    GetBookService
   ],
   bootstrap: [AppComponent]
 })

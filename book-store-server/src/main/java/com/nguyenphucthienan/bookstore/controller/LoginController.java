@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 public class LoginController {
-    @RequestMapping("/login")
+    @RequestMapping("/user-login")
     public Map<String, String> token(HttpSession session, HttpServletRequest request) {
         String remoteHost = request.getRemoteHost();
         int portNumber = request.getRemotePort();

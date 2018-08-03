@@ -30,9 +30,7 @@ export class AddNewBookComponent implements OnInit {
         this.isAdded = true;
         this.resetFormField();
       },
-      err => {
-        console.log(err);
-      }
+      err => console.log(err)
     );
   }
 

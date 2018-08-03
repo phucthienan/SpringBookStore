@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   sendCredentials(username: string, password: string) {
-    const url = 'http://localhost:8080/login';
+    const url = 'http://localhost:8080/user-login';
     const encodedCredentials = btoa(username + ':' + password);
 
     const headers = new HttpHeaders({

@@ -17,12 +17,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.checkSession().subscribe(
-      res => {
-        this.loginService.setLoggedIn(true);
-      },
-      err => {
-        this.loginService.setLoggedIn(false);
-      }
+      res => this.loginService.setLoggedIn(true),
+      err => this.loginService.setLoggedIn(false)
     );
   }
 

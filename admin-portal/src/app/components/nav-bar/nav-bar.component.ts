@@ -19,12 +19,8 @@ export class NavBarComponent implements OnInit {
 
   logout() {
     this.loginService.logout().subscribe(
-      res => {
-        this.loginService.setLoggedIn(false);
-      },
-      err => {
-        console.log(err);
-      }
+      res => this.loginService.setLoggedIn(false),
+      err => console.log(err)
     );
   }
 }

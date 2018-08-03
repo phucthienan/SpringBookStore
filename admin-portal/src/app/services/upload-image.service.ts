@@ -12,12 +12,9 @@ export class UploadImageService {
   }
 
   upload(bookId: number) {
-    this.makeFileRequest(`http://localhost:8080/book/image/${bookId}`, this.files).subscribe(
-      res => {
-      },
-      err => {
-        console.log(err);
-      }
+    this.makeFileRequest(`http://localhost:8080/books/${bookId}/images`, this.files).subscribe(
+      res => {},
+      err => console.log(err)
     );
   }
 

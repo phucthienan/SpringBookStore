@@ -15,9 +15,10 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;
+import java.util.List;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -27,7 +28,7 @@ public class BookController {
         return bookService.save(book);
     }
 
-    @RequestMapping(value = "/image/{bookId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{bookId}/images", method = RequestMethod.POST)
     public ResponseEntity uploadImage(@PathVariable Long bookId,
                                       HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -47,5 +48,15 @@ public class BookController {
             e.printStackTrace();
             return new ResponseEntity("{\"message\" : \"Upload image failed\"}", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @RequestMapping(value = {"","/"}, method = RequestMethod.GET)
+    public List<Book> getBooks() {
+        return bookService.findAll();
+    }
+
+    @RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
+    public Book getBook(@PathVariable Long bookId) {
+        return bookService.findById(bookId);
     }
 }
