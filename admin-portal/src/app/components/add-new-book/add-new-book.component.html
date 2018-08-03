@@ -118,4 +118,7 @@
 </div>
 <div [hidden]="!isAdded">
   <h3>Book added successfully!</h3>
+  <mat-grid-list cols="4" rowHeight="70px">
+    <button class="mat-primary" mat-raised-button routerLink="/books">Book List</button>
+  </mat-grid-list>
 </div>

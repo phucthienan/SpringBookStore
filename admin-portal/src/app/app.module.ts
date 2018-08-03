@@ -15,12 +15,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
-import { BookListComponent } from './components/book-list/book-list.component';
+import { BookListComponent, DeleteBookDialogComponent } from './components/book-list/book-list.component';
 import { BookViewComponent } from './components/book-view/book-view.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 
@@ -30,6 +31,7 @@ import { UploadImageService } from './services/upload-image.service';
 import { GetBookListService } from './services/get-book-list.service';
 import { GetBookService } from './services/get-book.service';
 import { EditBookService } from './services/edit-book.service';
+import { DeleteBookService } from './services/delete-book.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { EditBookService } from './services/edit-book.service';
     LoginComponent,
     AddNewBookComponent,
     BookListComponent,
+    DeleteBookDialogComponent,
     BookViewComponent,
     BookEditComponent
   ],
@@ -56,7 +59,8 @@ import { EditBookService } from './services/edit-book.service';
     MatSlideToggleModule,
     MatTableModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [
     LoginService,
@@ -64,7 +68,11 @@ import { EditBookService } from './services/edit-book.service';
     UploadImageService,
     GetBookListService,
     GetBookService,
-    EditBookService
+    EditBookService,
+    DeleteBookService
+  ],
+  entryComponents: [
+    DeleteBookDialogComponent
   ],
   bootstrap: [AppComponent]
 })
