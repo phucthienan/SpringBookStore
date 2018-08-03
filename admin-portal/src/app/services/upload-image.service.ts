@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class UploadImageService {
-  files: File[] = [];
+  private files: File[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -12,13 +12,15 @@ export class UploadImageService {
   }
 
   upload(bookId: number) {
-    this.makeFileRequest(`http://localhost:8080/books/${bookId}/images`, this.files).subscribe(
-      res => {},
-      err => console.log(err)
-    );
+    if (this.files.length > 0) {
+      this.makeFileRequest(`http://localhost:8080/books/${bookId}/images`, this.files).subscribe(
+        res => { },
+        err => console.log(err)
+      );
+    }
   }
 
-  makeFileRequest(url, files: File[]) {
+  private makeFileRequest(url, files: File[]) {
     const formData = new FormData();
     formData.append('image', files[0]);
     const headers = new HttpHeaders({

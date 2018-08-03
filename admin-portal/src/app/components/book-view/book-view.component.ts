@@ -11,7 +11,6 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class BookViewComponent implements OnInit {
   book: Book;
-  bookId: number;
   bookImageUrl: string;
 
   constructor(private router: Router,

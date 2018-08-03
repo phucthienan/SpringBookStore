@@ -6,7 +6,6 @@ import com.nguyenphucthienan.bookstore.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,14 +16,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findAll() {
-        List<Book> books = (List<Book>) bookRepository.findAll();
-        List<Book> activeBooks = new ArrayList<>();
-        for (Book book : books) {
-            if (book.isActive()) {
-                activeBooks.add(book);
-            }
-        }
-        return activeBooks;
+        return (List<Book>) bookRepository.findAll();
     }
 
     @Override

@@ -1,13 +1,13 @@
 <div>
   <a routerLink="/books">Go Back</a>
   <span> / </span>
-  <a routerLink="/books">Edit</a>
+  <a *ngIf="book" [routerLink]="['/books', book.id, 'edit']">Edit</a>
 </div>
 <mat-grid-list cols="9" rowHeight="100px" *ngIf="book">
   <mat-grid-tile [colspan]="3" [rowspan]="5">
     <div>
       <div>
-        <img [src]="bookImageUrl" class="responsive-img" />
+        <img [src]="bookImageUrl" />
       </div>
     </div>
   </mat-grid-tile>

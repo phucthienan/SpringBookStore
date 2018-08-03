@@ -50,7 +50,7 @@ public class BookController {
         }
     }
 
-    @RequestMapping(value = {"","/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public List<Book> getBooks() {
         return bookService.findAll();
     }
@@ -58,5 +58,10 @@ public class BookController {
     @RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
     public Book getBook(@PathVariable Long bookId) {
         return bookService.findById(bookId);
+    }
+
+    @RequestMapping(value = {"", "/"}, method = RequestMethod.PUT)
+    public Book updateBook(@RequestBody Book book) {
+        return bookService.save(book);
     }
 }

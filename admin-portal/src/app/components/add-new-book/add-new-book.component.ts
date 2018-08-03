@@ -25,8 +25,8 @@ export class AddNewBookComponent implements OnInit {
 
   onSubmit() {
     this.addBookService.addBook(this.book).subscribe(
-      res => {
-        this.uploadImageService.upload(res['id']);
+      (book: Book) => {
+        this.uploadImageService.upload(book.id);
         this.isAdded = true;
         this.resetFormField();
       },
